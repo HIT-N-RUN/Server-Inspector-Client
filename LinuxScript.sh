@@ -13,3 +13,13 @@ echo $MACHINE_ID
 echo $CPU_USED 
 echo $RAM_USED 
 echo $DISK_USED
+
+curl -X POST \
+  -H 'Content-type: application/json' \
+  --data '{ \
+    "MACHINE_ID": "${MACHINE_ID}",
+    "CPU_USED": "${CPU_USED}",
+    "RAM_USED": "${RAM_USED}",
+    "DISK_USED": "${DISK_USED}"
+  }' \
+  'localhost:3000'
